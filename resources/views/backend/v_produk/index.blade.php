@@ -50,6 +50,13 @@
                                                         class="far fa-edit"></i> Ubah</button>
                                             </a>
 
+                                            <a href="{{ route('backend.produk.show', $row->id) }}" title="Ubah Data">
+                                                <button type="button" class="btn btn-warning btn-sm">
+                                                    <i class="fas fa-plus">
+                                                    </i> Gambar
+                                                </button>
+                                            </a>
+
                                             <form method="POST" action="{{ route('backend.produk.destroy', $row->id) }}"
                                                 style="display: inline-block;">
                                                 @method('delete')

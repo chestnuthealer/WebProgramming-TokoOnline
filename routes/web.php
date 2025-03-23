@@ -6,9 +6,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KategoriController;
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/backend/beranda', [BerandaController::class, 'berandaBackend'])->name('backend.beranda')->middleware('auth');
 Route::get('/backend/login', [LoginController::class, 'loginBackend'])->name('backend.login');
 Route::post('/backend/login', [LoginController::class, 'authenticateBackend'])->name('backend.login');
@@ -21,3 +21,12 @@ Route::resource('/backend/produk', ProdukController::class, ['as' => 'backend'])
 Route::post('foto-produk/store', [ProdukController::class, 'storeFoto'])->name('backend.foto_produk.store')->middleware('auth');
 // Route untuk menghapus foto 
 Route::delete('foto-produk/{id}', [ProdukController::class, 'destroyFoto'])->name('backend.foto_produk.destroy')->middleware('auth');
+
+
+Route::get('/', function () { 
+    // return view('welcome'); 
+    return redirect()->route('beranda'); 
+}); 
+
+// Frontend 
+Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda'); 

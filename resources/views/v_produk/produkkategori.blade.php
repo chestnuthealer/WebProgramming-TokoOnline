@@ -35,7 +35,6 @@
                                     @csrf
                                     <button type="submit" class="primary-btn add-to-cart"><i
                                             class="fa fa-shopping-cart"></i> Pesan</button>
-
                                 </form>
                             </div>
                         </div>
@@ -45,13 +44,9 @@
             @endforeach
             <div class="clearfix visible-md visible-lg visible-sm visible-xs"></div>
         </div>
-        <div class="store-filter clearfix">
-            <div class="pagination">
-                {{ $produk->links('vendor.pagination.custom') }}
-            </div>
-        </div>
         <!-- /row -->
     </div>
     <!-- /STORE -->
+
     <!-- end template-->
 @endsection

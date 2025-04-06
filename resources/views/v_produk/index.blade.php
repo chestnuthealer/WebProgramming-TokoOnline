@@ -19,6 +19,7 @@
                             <a href="{{ route('produk.detail', $row->id) }}">
                                 <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Detail Produk</button>
                             </a>
+
                             <img src="{{ asset('storage/img-produk/thumb_md_' . $row->foto) }}" alt="">
                         </div>
                         <div class="product-body">
@@ -35,7 +36,6 @@
                                     @csrf
                                     <button type="submit" class="primary-btn add-to-cart"><i
                                             class="fa fa-shopping-cart"></i> Pesan</button>
-
                                 </form>
                             </div>
                         </div>
@@ -44,14 +44,17 @@
                 <!-- /Product Single -->
             @endforeach
             <div class="clearfix visible-md visible-lg visible-sm visible-xs"></div>
+
         </div>
         <div class="store-filter clearfix">
             <div class="pagination">
+                <h1>ASUI</h1>
                 {{ $produk->links('vendor.pagination.custom') }}
             </div>
         </div>
         <!-- /row -->
     </div>
     <!-- /STORE -->
+
     <!-- end template-->
 @endsection

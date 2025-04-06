@@ -23,10 +23,13 @@ Route::post('foto-produk/store', [ProdukController::class, 'storeFoto'])->name('
 Route::delete('foto-produk/{id}', [ProdukController::class, 'destroyFoto'])->name('backend.foto_produk.destroy')->middleware('auth');
 
 
-Route::get('/', function () { 
+Route::get('/', function () {
     // return view('welcome'); 
-    return redirect()->route('beranda'); 
-}); 
+    return redirect()->route('beranda');
+});
 
 // Frontend 
-Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda'); 
+Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
+Route::get('/produk/detail/{id}', [ProdukController::class, 'detail'])->name('produk.detail');
+Route::get('/produk/kategori/{id}', [ProdukController::class, 'produkKategori'])->name('produk.kategori');
+Route::get('/produk/all', [ProdukController::class, 'produkAll'])->name('produk.all'); 

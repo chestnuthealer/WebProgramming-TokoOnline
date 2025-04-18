@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KategoriController;
 // Route::get('/', function () {
 //     return view('welcome');
@@ -32,4 +33,10 @@ Route::get('/', function () {
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 Route::get('/produk/detail/{id}', [ProdukController::class, 'detail'])->name('produk.detail');
 Route::get('/produk/kategori/{id}', [ProdukController::class, 'produkKategori'])->name('produk.kategori');
-Route::get('/produk/all', [ProdukController::class, 'produkAll'])->name('produk.all'); 
+Route::get('/produk/all', [ProdukController::class, 'produkAll'])->name('produk.all');
+
+//API Google 
+Route::get('/auth/redirect', [CustomerController::class, 'redirect'])->name('auth.redirect');
+Route::get('/auth/google/callback', [CustomerController::class, 'callback'])->name('auth.callback');
+// Logout 
+Route::post('/logout', [CustomerController::class, 'logout'])->name('logout');

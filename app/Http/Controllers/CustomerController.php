@@ -12,6 +12,15 @@ use App\Helpers\ImageHelper;
 
 class CustomerController extends Controller
 {
+    public function index()
+    {
+        $customer = Customer::orderBy('id', 'desc')->get();
+        return view('backend.v_customer.index', [
+            'judul' => 'Customer',
+            'sub' => 'Halaman Customer',
+            'index' => $customer
+        ]);
+    }
     // Redirect ke Google 
     public function redirect()
     {

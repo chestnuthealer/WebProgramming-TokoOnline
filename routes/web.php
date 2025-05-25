@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\CustomerController;
@@ -54,4 +55,8 @@ Route::middleware('is.customer')->group(function () {
     Route::get('/customer/akun/{id}', [CustomerController::class, 'akun'])->name('customer.akun');
     // Route untuk mengupdate data akun customer 
     Route::put('/customer/updateakun/{id}', [CustomerController::class, 'updateAkun'])->name('customer.update.akun');
+
+    // Route untuk menambahkan produk ke keranjang
+    Route::post('add-to-cart/{id}', [OrderController::class, 'addToCart'])->name('order.addToCart');
+    Route::get('cart', [OrderController::class, 'viewCart'])->name('order.cart');
 });

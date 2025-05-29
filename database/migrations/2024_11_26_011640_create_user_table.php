@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user', function (Blueprint $table) { 
-            $table->id(); 
-            $table->string('nama'); 
-            $table->string('email')->unique(); 
-            $table->enum('role',[0,1,2])->default(0); // 0= Admin, 1= SuperAdmin, 2= Customer  
+        Schema::create('user', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->string('email')->unique();
+            $table->enum('role', [0, 1, 2])->default(0); // 0= Admin, 1= SuperAdmin, 2= Customer  
             $table->boolean('status'); //0= Belum Aktif, 1= Aktif 
             //$table->timestamp('email_verified_at')->nullable(); 
-            $table->string('password'); 
-            $table->string('hp', 13); 
+            $table->string('password');
+            $table->string('hp', 13);
             //$table->rememberToken(); 
-            $table->string('foto')->nullable(); 
-            $table->timestamps(); 
+            $table->string('foto')->nullable();
+            $table->timestamps();
         });
     }
 

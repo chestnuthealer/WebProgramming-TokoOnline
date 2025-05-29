@@ -53,7 +53,7 @@
                                                 <button type="button" class="btn btn-cyan btn-sm"><i
                                                         class="far fa-edit"></i> Ubah</button>
                                             </a>
-                                            
+
                                             <form method="POST" action="{{ route('backend.user.destroy', $row->id) }}"
                                                 style="display: inline-block;">
                                                 @method('delete')

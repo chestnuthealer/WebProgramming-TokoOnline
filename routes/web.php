@@ -9,6 +9,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\RajaOngkirController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -68,3 +69,11 @@ Route::get('/list-ongkir', function () {
     ])->get('https://api.rajaongkir.com/starter/province'); //ganti 'province' atau 'city'
     dd($response->json());
 });
+
+Route::get('/cek-ongkir', function () {
+    return view('ongkir');
+});
+
+Route::get('/provinces', [RajaOngkirController::class, 'getProvinces']);
+Route::get('/cities', [RajaOngkirController::class, 'getCities']);
+Route::post('/cost', [RajaOngkirController::class, 'getCost']);
